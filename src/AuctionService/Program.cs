@@ -18,17 +18,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/auctions"), appBuilder =>
-{
-    appBuilder.Use(async (context, next) =>
-    {
-        var route = context.Request.Path;
-        var method = context.Request.Method;
-        Console.WriteLine($"Auction request hit: {method} {route}");
-        await next.Invoke();
-    });
-});
-
 try
 {
     DbInitializer.InitDb(app);
