@@ -3,6 +3,7 @@ using System;
 using AuctionService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuctionService.Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    partial class AuctionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117173800_Outbox")]
+    partial class Outbox
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,100 +140,11 @@ namespace AuctionService.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasAlternateKey("MessageId", "ConsumerId");
+
                     b.HasIndex("Delivered");
 
                     b.ToTable("InboxState");
-                });
-
-            modelBuilder.Entity("MassTransit.EntityFrameworkCoreIntegration.OutboxMessage", b =>
-                {
-                    b.Property<long>("SequenceNumber")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("SequenceNumber"));
-
-                    b.Property<string>("Body")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ContentType")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<Guid?>("ConversationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("CorrelationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("DestinationAddress")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<DateTime?>("EnqueueTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime?>("ExpirationTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("FaultAddress")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("Headers")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("InboxConsumerId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("InboxMessageId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("InitiatorId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("MessageId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("MessageType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("OutboxId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Properties")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("RequestId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ResponseAddress")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<DateTime>("SentTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("SourceAddress")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.HasKey("SequenceNumber");
-
-                    b.HasIndex("EnqueueTime");
-
-                    b.HasIndex("ExpirationTime");
-
-                    b.HasIndex("OutboxId", "SequenceNumber")
-                        .IsUnique();
-
-                    b.HasIndex("InboxMessageId", "InboxConsumerId", "SequenceNumber")
-                        .IsUnique();
-
-                    b.ToTable("OutboxMessage");
                 });
 
             modelBuilder.Entity("MassTransit.EntityFrameworkCoreIntegration.OutboxState", b =>
@@ -272,18 +186,6 @@ namespace AuctionService.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Auction");
-                });
-
-            modelBuilder.Entity("MassTransit.EntityFrameworkCoreIntegration.OutboxMessage", b =>
-                {
-                    b.HasOne("MassTransit.EntityFrameworkCoreIntegration.OutboxState", null)
-                        .WithMany()
-                        .HasForeignKey("OutboxId");
-
-                    b.HasOne("MassTransit.EntityFrameworkCoreIntegration.InboxState", null)
-                        .WithMany()
-                        .HasForeignKey("InboxMessageId", "InboxConsumerId")
-                        .HasPrincipalKey("MessageId", "ConsumerId");
                 });
 
             modelBuilder.Entity("AuctionService.Entities.Auction", b =>
