@@ -13,7 +13,7 @@ public class AuctionSvcHttpClient(HttpClient httpClient, IConfiguration config)
     {
         var lastUpdated = await DB.Find<Item, string>()
             .Sort(x => x.Descending(i => i.UpdatedAt))
-            .Project(x => x.UpdatedAt.ToString(CultureInfo.InvariantCulture))
+            .Project(x => x.UpdatedAt.ToString())
             .ExecuteFirstAsync();
 
         return await httpClient.GetFromJsonAsync<List<Item>>(new Uri($"/api/auctions?date={lastUpdated}",

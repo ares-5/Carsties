@@ -1,16 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionService", "src\AuctionService\AuctionService.csproj", "{A079FADB-C4BE-49A5-92E7-692513A006AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06B0D905-661D-4BDC-81A3-342072100910}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F452D85-A2F0-4BC0-96B6-8E9F9A8E9937}"
-				ProjectSection(SolutionItems) = preProject
-								docker-compose.yml = docker-compose.yml
-								docker-compose.override.yml = docker-compose.override.yml
-				EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		docker-compose.override.yml = docker-compose.override.yml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "src\SearchService\SearchService.csproj", "{B71592D4-28E6-4BC8-AEDB-C6CFF5C7B836}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "src\Contracts\Contracts.csproj", "{965A0A3A-A368-4787-BD5E-87FBC1EA69E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "src\IdentityService\IdentityService.csproj", "{D4CC7653-40F5-417D-9CE1-0510A861C44B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +31,19 @@ Global
 		{B71592D4-28E6-4BC8-AEDB-C6CFF5C7B836}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B71592D4-28E6-4BC8-AEDB-C6CFF5C7B836}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B71592D4-28E6-4BC8-AEDB-C6CFF5C7B836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965A0A3A-A368-4787-BD5E-87FBC1EA69E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965A0A3A-A368-4787-BD5E-87FBC1EA69E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965A0A3A-A368-4787-BD5E-87FBC1EA69E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965A0A3A-A368-4787-BD5E-87FBC1EA69E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4CC7653-40F5-417D-9CE1-0510A861C44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4CC7653-40F5-417D-9CE1-0510A861C44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4CC7653-40F5-417D-9CE1-0510A861C44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4CC7653-40F5-417D-9CE1-0510A861C44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A079FADB-C4BE-49A5-92E7-692513A006AE} = {06B0D905-661D-4BDC-81A3-342072100910}
 		{B71592D4-28E6-4BC8-AEDB-C6CFF5C7B836} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{965A0A3A-A368-4787-BD5E-87FBC1EA69E8} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{D4CC7653-40F5-417D-9CE1-0510A861C44B} = {06B0D905-661D-4BDC-81A3-342072100910}
 	EndGlobalSection
 EndGlobal
