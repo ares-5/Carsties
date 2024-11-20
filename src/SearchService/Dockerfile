@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/SearchService/SearchService.csproj", "src/SearchService/"]
+COPY ["src/Contracts/Contracts.csproj", "src/Contracts/"]
 RUN dotnet restore "src/SearchService/SearchService.csproj"
 COPY . .
 WORKDIR "/src/src/SearchService"
