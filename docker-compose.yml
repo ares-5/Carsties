@@ -74,6 +74,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
+      - IdentityServiceUrl=http://identity-svc
     ports:
       - "6001:80"
 volumes:

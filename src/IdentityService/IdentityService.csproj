@@ -12,6 +12,8 @@
 
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.3" />
 
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.11" />
+
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
 		<PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
 
@@ -25,5 +27,16 @@
 	  <Content Include="..\..\.dockerignore">
 	    <Link>.dockerignore</Link>
 	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-16AF4569907F145ABB85D4A04F2B2001.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-1A79A8888FC4EACB8DDDBE93D29248F6.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-267EFDD462D1BCC89650847D0FA0801C.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-2FC14005FB73C5A7C7CC5F62AA67C942.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-58F24EC05A8D077FC5AFCDDF426860BA.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-A37AC9DF6722B6ACCF358075BF4A44DA.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-A9A3BE9675E910C61912DCF307026A95.json" />
+	  <_ContentIncludedByDefault Remove="keys\is-signing-key-C6BDC6C6BE3EC7D1BDBF89E520D0FB36.json" />
 	</ItemGroup>
 </Project>
