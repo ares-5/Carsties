@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-#
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionService", "src\AuctionService\AuctionService.csproj", "{A079FADB-C4BE-49A5-92E7-692513A006AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06B0D905-661D-4BDC-81A3-342072100910}"
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "src\IdentityService\IdentityService.csproj", "{D4CC7653-40F5-417D-9CE1-0510A861C44B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayService", "src\GatewayService\GatewayService.csproj", "{C1759980-21D7-489D-ABF2-98FBCAFED9E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingService", "src\BiddingService\BiddingService.csproj", "{B6B8F12D-693C-48D2-8E8B-ACE12C7B1FD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C1759980-21D7-489D-ABF2-98FBCAFED9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1759980-21D7-489D-ABF2-98FBCAFED9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1759980-21D7-489D-ABF2-98FBCAFED9E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B8F12D-693C-48D2-8E8B-ACE12C7B1FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B8F12D-693C-48D2-8E8B-ACE12C7B1FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B8F12D-693C-48D2-8E8B-ACE12C7B1FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B8F12D-693C-48D2-8E8B-ACE12C7B1FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A079FADB-C4BE-49A5-92E7-692513A006AE} = {06B0D905-661D-4BDC-81A3-342072100910}
@@ -52,5 +58,6 @@ Global
 		{965A0A3A-A368-4787-BD5E-87FBC1EA69E8} = {06B0D905-661D-4BDC-81A3-342072100910}
 		{D4CC7653-40F5-417D-9CE1-0510A861C44B} = {06B0D905-661D-4BDC-81A3-342072100910}
 		{C1759980-21D7-489D-ABF2-98FBCAFED9E1} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{B6B8F12D-693C-48D2-8E8B-ACE12C7B1FD8} = {06B0D905-661D-4BDC-81A3-342072100910}
 	EndGlobalSection
 EndGlobal
