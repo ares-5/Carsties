@@ -10,6 +10,7 @@ export async function getCurrentUser() {
         
         return session.user;
     } catch(err) {
+        console.log(err);
         return null
     }
 }

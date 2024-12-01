@@ -39,3 +39,5 @@ export type AuctionFinished = {
     seller: string;
     amount?: number;
 }
+
+export type SearchParams = Promise<{ [key: string]: string | undefined }>

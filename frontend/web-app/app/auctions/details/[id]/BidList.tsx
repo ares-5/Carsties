@@ -8,9 +8,9 @@ import {User} from "next-auth";
 import {useEffect, useState} from "react";
 import toast from "react-hot-toast";
 import BidItem from "./BidItem";
-import {numberWithCommas} from "@/lib/numberWithComma";
 import EmptyFilter from "@/app/components/EmptyFilter";
 import BidForm from "./BidForm";
+import { numberWithCommas } from "@/app/lib/numberWithComma";
 
 type Props = {
     user?: User | null
@@ -48,7 +48,7 @@ export default function BidList({user, auction}: Props) {
 
     useEffect(() => {
         setOpen(open);
-    }, [openForBids, setOpen]);
+    }, [openForBids, setOpen, open]);
     
     if (loading) return <span>Loading bids...</span>
 

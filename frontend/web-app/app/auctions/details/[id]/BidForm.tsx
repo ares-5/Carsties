@@ -1,8 +1,8 @@
 'use client'
 
 import {placeBidForAuction} from "@/app/actions/auctionActions";
+import { numberWithCommas } from "@/app/lib/numberWithComma";
 import {useBidStore} from "@/hooks/useBidStore";
-import { numberWithCommas } from "@/lib/numberWithComma";
 import {FieldValues, useForm} from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function BidForm({auctionId, highBid}: Props) {
-    const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const {register, handleSubmit, reset} = useForm();
     const addBid = useBidStore(state => state.addBid);
 
     function onSubmit(data: FieldValues) {

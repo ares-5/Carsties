@@ -89,6 +89,23 @@ services:
       - "7004:80"
     depends_on:
       - rabbitmq
+  web-app:
+    image: ${DOCKER_REGISTRY-}web-app:latest
+    build:
+      context: .
+      dockerfile: frontend/web-app/Dockerfile
+    volumes:
+      - /var/lib/web/data
+    environment:
+      - AUTH_SECRET="R8pRYGUtEKleZ0m2r0cg4kde8BeDldHt3N1KVQz6vwQ="
+      - AUTH_URL=http://app.carsties.localhost
+      - AUTH_URL_INTERNAL=http://web-app:3000
+      - API_URL=http://gateway-svc/
+      - ID_URL=http://id.carsties.localhost
+      - ID_URL_INTERNAL=http://identity-svc
+      - NOTIFY_URL=http://api.carsties.localhost/notifications
+      - VIRTUAL_HOST=app.carsties.localhost
+      - VIRTUAL_PORT=3000
   identity-svc:
     image: ${DOCKER_REGISTRY-}identity-svc:latest
     build:
@@ -97,9 +114,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
+      - ClientApp=app.carsties.localhost
+      - IssuerUri=id.carsties.localhost
       - ConnectionStrings__DefaultConnection=Server=postgres:5432;User Id=postgres;Password=postgrespw;Database=identity
-    ports:
-      - "5000:80"
+      - VIRTUAL_HOST=id.carsties.localhost
     depends_on:
       - postgres
   gateway-svc:
@@ -111,8 +129,15 @@ services:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
       - IdentityServiceUrl=http://identity-svc
+      - ClientApp=http://app.carsties.localhost
+      - VIRTUAL_HOST=api.carsties.localhost
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
     ports:
-      - "6001:80"
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 volumes:
   pgdata:
   mongodata:
