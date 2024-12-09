@@ -99,11 +99,11 @@ public class AuctionControllerTests
 
         // Act
         var result = await auctionController.CreateAuctionAsync(auction);
-        var createdResult = result.Result as CreatedAtActionResult;
+        var createdResult = result.Result as CreatedAtRouteResult;
 
         // Assert
         Assert.NotNull(createdResult);
-        Assert.Equal("GetAuctionByIdAsync", createdResult.ActionName);
+        Assert.Equal("GetAuctionById", createdResult.RouteName);
         Assert.IsType<AuctionDto>(createdResult.Value);
     }
     

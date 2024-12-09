@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace AuctionService.Dtos;
 
 public class CreateAuctionDto
 {
+    [Required]
     public required string Make { get; set; }
 
     public required string Model { get; set; }

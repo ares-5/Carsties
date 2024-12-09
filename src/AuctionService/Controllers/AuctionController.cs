@@ -27,7 +27,7 @@ public class AuctionController(
         return await auctionRepository.GetAuctionsAsync(date);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}", Name = "GetAuctionById")]
     public async Task<ActionResult<AuctionDto>> GetAuctionByIdAsync(Guid id)
     {
         var auction = await auctionRepository.GetAuctionByIdAsync(id);
@@ -59,8 +59,8 @@ public class AuctionController(
             return BadRequest("Couldn't save changes to the Db");
         }
         
-        return CreatedAtAction(
-            nameof(GetAuctionByIdAsync),
+        return CreatedAtRoute(
+            "GetAuctionById",
             new { id = auction.Id },
             mapper.Map<AuctionDto>(auction)
         );
