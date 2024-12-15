@@ -32,14 +32,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{5CD723BD-42BC-43DC-BCCF-99FDA319EBFD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ingress", "ingress", "{5CD723BD-42BC-43DC-BCCF-99FDA319EBFD}"
-    ProjectSection(SolutionItems) = preProject
+				ProjectSection(SolutionItems) = preProject
 		ingress-depl.yml = ingress-depl.yml
-    EndProjectSection
+				EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dev-k8s", "dev-k8s", "{EAC97F07-1B5F-4430-A7F7-55E2E84034C1}"
-    ProjectSection(SolutionItems) = preProject
+				ProjectSection(SolutionItems) = preProject
 		dev-secrets.yml = dev-secrets.yml
-    EndProjectSection
+				EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{EAC97F07-1B5F-4430-A7F7-55E2E84034C1}"
 	ProjectSection(SolutionItems) = preProject
@@ -57,6 +57,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{EAC97F07-1B5
 		webapp-svc-depl.yml = webapp-svc-depl.yml
 		config.yml = config.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F288C0EC-9A6B-4C37-9E00-DB137E0B68D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6162A224-115E-496A-8383-B974E1371B72}"
+    ProjectSection(SolutionItems) = preProject
+        deploy.yml = deploy.yml
+    EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -112,5 +119,12 @@ Global
 		{B55C808B-BCAC-4E12-9749-EAAD218468F1} = {57453885-B519-4E22-AFE2-00FADC092926}
 		{1FE26134-BC59-4223-B480-9A746B217355} = {57453885-B519-4E22-AFE2-00FADC092926}
 		{EAC97F07-1B5F-4430-A7F7-55E2E84034C1} = {5CD723BD-42BC-43DC-BCCF-99FDA319EBFD}
+		{6BEC9075-76EE-4C91-9935-A7562DA8FA2D} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{7E1AFB6B-9FF9-4F0B-8D9A-B494C3CD3D1A} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{A94E300E-19FE-4B5E-8E4B-C1A086C4C6BE} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{88C752E7-F33F-4578-8420-98413EEF9A11} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{652C5160-7882-48F6-AF6F-62A90316D49E} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{6FADEE5B-04A2-4A1D-9698-D6F5B60B0839} = {06B0D905-661D-4BDC-81A3-342072100910}
+		{6162A224-115E-496A-8383-B974E1371B72} = {F288C0EC-9A6B-4C37-9E00-DB137E0B68D0}
 	EndGlobalSection
 EndGlobal
