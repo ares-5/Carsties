@@ -13,6 +13,18 @@ jobs:
         service:
           - name: 'zafirovic5/auction-svc'
             path: 'src/AuctionService'
+          - name: 'zafirovic5/search-svc'
+            path: 'src/SearchService'
+          - name: 'zafirovic5/bid-svc'
+            path: 'src/BiddingService'
+          - name: 'zafirovic5/identity-svc'
+            path: 'src/IdentityService'
+          - name: 'zafirovic5/gateway-svc'
+            path: 'src/GatewayService'
+          - name: 'zafirovic5/notify-svc'
+            path: 'src/NotificationService'
+          - name: 'zafirovic5/web-app'
+            path: 'frontend/web-app'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
