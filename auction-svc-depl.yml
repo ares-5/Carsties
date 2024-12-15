@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auction-svc
+  labels:
+    app: auction-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auction-svc
+  template:
+    metadata:
+      name: auction-svc
+      labels:
+        app: auction-svc
+    spec:
+      containers:
+        - name: auction-svc
+          image: zafirovic5/auction-svc
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: auction-svc-config
+          ports:
+            - containerPort: 80
+              name: web
+            - containerPort: 7777
+              name: grpc
+      restartPolicy: Always
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: auction-clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: auction-svc
+  ports:
+    - port: 80
+      targetPort: 80
+      name: web
+    - port: 7777
+      targetPort: 7777
+      name: grpc

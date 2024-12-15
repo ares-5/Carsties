@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bid-svc
+  labels:
+    app: bid-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bid-svc
+  template:
+    metadata:
+      name: bid-svc
+      labels:
+        app: bid-svc
+    spec:
+      containers:
+        - name: bid-svc
+          image: zafirovic5/bid-svc
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: bid-svc-config
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bid-clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: bid-svc
+  ports:
+    - port: 80
+      targetPort: 80

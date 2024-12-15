@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionService.IntegrationT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{5CD723BD-42BC-43DC-BCCF-99FDA319EBFD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ingress", "ingress", "{5CD723BD-42BC-43DC-BCCF-99FDA319EBFD}"
+    ProjectSection(SolutionItems) = preProject
+		ingress-depl.yml = ingress-depl.yml
+    EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{EAC97F07-1B5F-4430-A7F7-55E2E84034C1}"
 	ProjectSection(SolutionItems) = preProject
 		postgres-depl.yml = postgres-depl.yml
@@ -38,6 +43,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{EAC97F07-1B5
 		mongo-depl.yml = mongo-depl.yml
 		local-pvc.yml = local-pvc.yml
 		storage-pv.yml = storage-pv.yml
+		auction-svc-depl.yml = auction-svc-depl.yml
+		search-svc-depl.yml = search-svc-depl.yml
+		bid-svc-depl.yml = bid-svc-depl.yml
+		notify-svc-depl.yml = notify-svc-depl.yml
+		gateway-svc-depl.yml = gateway-svc-depl.yml
+		identity-svc-depl.yml = identity-svc-depl.yml
+		webapp-svc-depl.yml = webapp-svc-depl.yml
+		config.yml = config.yml
 	EndProjectSection
 EndProject
 Global

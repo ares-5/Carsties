@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notify-svc
+  labels:
+    app: notify-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notify-svc
+  template:
+    metadata:
+      name: notify-svc
+      labels:
+        app: notify-svc
+    spec:
+      containers:
+        - name: notify-svc
+          image: zafirovic5/notify-svc
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: notify-svc-config
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notify-clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: notify-svc
+  ports:
+    - port: 80
+      targetPort: 80
