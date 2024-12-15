@@ -36,6 +36,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ingress", "ingress", "{5CD7
 		ingress-depl.yml = ingress-depl.yml
     EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dev-k8s", "dev-k8s", "{EAC97F07-1B5F-4430-A7F7-55E2E84034C1}"
+    ProjectSection(SolutionItems) = preProject
+		dev-secrets.yml = dev-secrets.yml
+    EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{EAC97F07-1B5F-4430-A7F7-55E2E84034C1}"
 	ProjectSection(SolutionItems) = preProject
 		postgres-depl.yml = postgres-depl.yml

@@ -5,9 +5,6 @@ metadata:
 data:
   ASPNETCORE_URLS: "http://+:80;http://+:7777"
   RabbitMq__Host: "rabbit-clusterip"
-  RabbitMq__Username: "rabbit"
-  RabbitMq__Password: "rabbitpw"
-  ConnectionStrings__DefaultConnection: "Server=postgres-clusterip;User Id=postgres;Password=postgrespw;Database=auctions"
   IdentityServiceUrl: "http://identity-clusterip"
   Kestrel__Endpoints__Grpc__Protocols: "Http2"
   Kestrel__Endpoints__Grpc__Url: "http://+:7777"
@@ -21,9 +18,6 @@ metadata:
 data:
   ASPNETCORE_URLS: "http://+:80"
   RabbitMq__Host: "rabbit-clusterip"
-  RabbitMq__Username: "rabbit"
-  RabbitMq__Password: "rabbitpw"
-  ConnectionStrings__MongoDbConnection: "mongodb://root:root@mongo-clusterip"
   AuctionServiceUrl: "http://auction-clusterip"
 ---
 apiVersion: v1
@@ -33,9 +27,6 @@ metadata:
 data:
   ASPNETCORE_URLS: "http://+:80"
   RabbitMq__Host: "rabbit-clusterip"
-  RabbitMq__Username: "rabbit"
-  RabbitMq__Password: "rabbitpw"
-  ConnectionStrings__BidDbConnection: "mongodb://root:root@mongo-clusterip"
   IdentityServiceUrl: "http://identity-clusterip"
   GrpcAuction: "http://auction-clusterip:7777"
 ---
@@ -46,8 +37,6 @@ metadata:
 data:
   ASPNETCORE_URLS: "http://+:80"
   RabbitMq__Host: "rabbit-clusterip"
-  RabbitMq__Username: "rabbit"
-  RabbitMq__Password: "rabbitpw"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -66,14 +55,12 @@ data:
   ASPNETCORE_URLS: "http://+:80"
   ClientApp: "http://app.carsties.localhost"
   IssuerUri: "http://id.carsties.localhost"
-  ConnectionStrings__DefaultConnection: "Server=postgres-clusterip;User Id=postgres;Password=postgrespw;Database=identity"
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: webapp-svc-config
 data:
-  AUTH_SECRET: "R8pRYGUtEKleZ0m2r0cg4kde8BeDldHt3N1KVQz6vwQ="
   AUTH_URL: "http://app.carsties.localhost"
   AUTH_URL_INTERNAL: "http://webapp-clusterip:3000"
   API_URL: "http://gateway-clusterip/"

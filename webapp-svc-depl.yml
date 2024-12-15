@@ -19,6 +19,12 @@ spec:
         - name: webapp-svc
           image: zafirovic5/web-app
           imagePullPolicy: Never
+          env:
+            - name: AUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: authSecret
           envFrom:
             - configMapRef:
                 name: webapp-svc-config
